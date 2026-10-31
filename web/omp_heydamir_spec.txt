@@ -1,0 +1,27 @@
+Goal: Refactor the entire Next.js 14 web app into the dark charcoal luxury design system inspired by https://heydamir.design/ (Warm Charcoal #151413 canvas, Cream Stone #efe9de text, Hairline borders rgba(239,233,222,0.12), and tactile buttons).
+Constraints: Next.js 14 App Router, TypeScript strict, Tailwind CSS. 100% English BI UI copy. Retain all functionality (live bundle tier state toggles, Liquid copy modal, AOV calculators, templates catalog). pnpm build must pass with exit code 0.
+Allowed Scope:
+- tailwind.config.ts
+- app/globals.css
+- app/layout.tsx
+- components/Navbar.tsx
+- components/Footer.tsx
+- components/BundleTeardown.tsx
+- components/LiquidModal.tsx
+- components/AovCalculator.tsx
+- app/page.tsx
+- app/calculators/page.tsx
+- app/templates/page.tsx
+Acceptance Criteria:
+1. `pnpm build` completes with exit code 0.
+2. Design Aesthetics Match heydamir.design:
+   - Primary Background: Warm dark charcoal `#151413`.
+   - Card/Surface Backgrounds: `#1c1b18` or `#191816` with hairline border `rgba(239,233,222,0.1)`.
+   - Typography: Heading and body text in warm cream `#efe9de`, secondary text in `rgba(239,233,222,0.6)`. Monospace tabular numbers for prices/percentages.
+   - Buttons: Tactile cream button (bg-[#efe9de] text-[#151413] font-medium shadow-[0_1px_2px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.4)] rounded-full or rounded-xl) for primary CTAs; quiet button (bg-[#efe9de]/5 border border-[#efe9de]/12 text-[#efe9de] rounded-full or rounded-xl) for secondary actions.
+   - Interactive Teardown: Dark sleek studio product card with 1-3-6 bundle tier picker that toggles state smoothly, glowing active border/indicator, and copy modal trigger.
+   - Calculators & Templates: Completely updated to match the dark charcoal luxury theme seamlessly.
+Forbidden Actions:
+- Do not introduce external npm dependencies.
+- Do not use Vietnamese text on the UI (strict 100% English).
+- Do not break existing TypeScript types or cause build errors.

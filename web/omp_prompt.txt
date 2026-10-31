@@ -1,0 +1,31 @@
+Goal: Build a high-converting, professional CRO Resource & Template Hub for Shopify merchants in Next.js 14 (App Router) + Tailwind CSS with interactive product page teardown, copyable Dawn Liquid section code, live AOV & Discount Break-even calculator, and B2B affiliate partner hooks.
+Constraints: 100% English UI (strict BI standard). TypeScript strict mode. Next.js 14 App Router. Client components explicitly marked with "use client". Clean responsive design with Tailwind CSS. pnpm build must succeed with zero errors.
+Allowed Scope:
+- app/layout.tsx
+- app/page.tsx
+- app/calculators/page.tsx
+- app/templates/page.tsx
+- components/Navbar.tsx
+- components/Footer.tsx
+- components/BundleTeardown.tsx
+- components/LiquidModal.tsx
+- components/AovCalculator.tsx
+Acceptance Criteria:
+1. `pnpm build` executes cleanly with exit code 0.
+2. Home page (/) contains:
+   - Hero section with high-converting value prop: "Turn Single-Item Buyers Into Multi-Item Orders".
+   - Interactive Teardown component: A live interactive 1-3-6 supply pack bundle selector (clickable tiers: 1 Bottle $49, 3 Bottles $117 [Most Popular], 6 Bottles $174 [Best Value]).
+   - Conversion annotations (numbered badges 1, 2, 3 explaining price anchoring, default selection psychology, and social proof).
+   - "Copy Free Dawn Liquid Code" button which opens a modal or displays the full Shopify Dawn OS 2.0 Liquid code ready to copy with 1 click.
+   - Dedicated App Partner banner: "Need dynamic inventory sync across multiple standalone SKUs? Power this with Kaching Bundles. Use coupon SAVE20 for 20% OFF." with tracking link placeholder.
+3. Calculators page (/calculators) contains:
+   - AOV & Bundle Margin Calculator (interactive sliders/inputs: Current AOV, Monthly Orders, Bundle Take Rate %, Bundle Discount %, COGS % -> outputs Projected AOV, Net Revenue Gain, Net Profit Delta).
+   - Discount Break-Even Calculator (Current Margin %, Proposed Discount % -> outputs Required Sales Volume Increase % to break even).
+4. Templates catalog page (/templates) displaying 3 curated CRO templates:
+   - 01: 1-3-6 Supply Pack (Supplements & Beauty)
+   - 02: Buy X Get Y / Tiered Gifts (Fashion & Apparel)
+   - 03: Mix & Match Box (Food & Beverage)
+Forbidden Actions:
+- Do not touch files outside `web/`.
+- Do not use any Vietnamese words on the user interface (all UI copy must be clean, native English).
+- Do not add heavy external dependencies (use pure React/Tailwind/Lucide or SVG icons).

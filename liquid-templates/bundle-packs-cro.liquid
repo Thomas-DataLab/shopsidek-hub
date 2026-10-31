@@ -1,0 +1,482 @@
+{% comment %}
+  Shopify Dawn CRO Supply-Pack Bundle Section
+  Developed by Thomas Pham (CRO Hub)
+  Compatible with Shopify Dawn (OS 2.0)
+{% endcomment %}
+
+<div class="cro-bundle-container page-width" id="cro-bundle-{{ section.id }}">
+  <div class="cro-bundle-header">
+    {% if section.settings.subheading != blank %}
+      <span class="cro-bundle-subheading">{{ section.settings.subheading }}</span>
+    {% endif %}
+    <h2 class="cro-bundle-title">{{ section.settings.heading | default: 'Select Your Supply & Save' }}</h2>
+    {% if section.settings.description != blank %}
+      <p class="cro-bundle-desc">{{ section.settings.description }}</p>
+    {% endif %}
+  </div>
+
+  <div class="cro-bundle-grid">
+    <!-- Tier 1: 1 Unit (Starter) -->
+    <div class="cro-bundle-card" data-tier="1" data-variant-id="{{ section.settings.tier_1_variant_id }}" data-price="{{ section.settings.tier_1_price }}" onclick="selectCroBundle(this)">
+      <div class="cro-card-radio">
+        <input type="radio" name="cro_bundle_tier_{{ section.id }}" id="cro_tier_1_{{ section.id }}" value="1">
+      </div>
+      <div class="cro-card-content">
+        <div class="cro-card-header">
+          <span class="cro-pack-name">{{ section.settings.tier_1_title | default: '1 Month Supply' }}</span>
+          <span class="cro-pack-qty">{{ section.settings.tier_1_qty_text | default: '1 Bottle' }}</span>
+        </div>
+        <div class="cro-card-pricing">
+          <span class="cro-current-price">{{ section.settings.tier_1_price_formatted | default: '$49.00' }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tier 2: 3 Units (Most Popular) -->
+    <div class="cro-bundle-card cro-card-popular selected" data-tier="2" data-variant-id="{{ section.settings.tier_2_variant_id }}" data-price="{{ section.settings.tier_2_price }}" onclick="selectCroBundle(this)">
+      <div class="cro-badge cro-badge-popular">{{ section.settings.tier_2_badge | default: 'MOST POPULAR' }}</div>
+      <div class="cro-card-radio">
+        <input type="radio" name="cro_bundle_tier_{{ section.id }}" id="cro_tier_2_{{ section.id }}" value="2" checked>
+      </div>
+      <div class="cro-card-content">
+        <div class="cro-card-header">
+          <span class="cro-pack-name">{{ section.settings.tier_2_title | default: '3 Months Supply' }}</span>
+          <span class="cro-pack-qty">{{ section.settings.tier_2_qty_text | default: '3 Bottles (Save 20%)' }}</span>
+        </div>
+        <div class="cro-card-pricing">
+          <span class="cro-current-price">{{ section.settings.tier_2_price_formatted | default: '$117.00' }}</span>
+          <span class="cro-unit-price">{{ section.settings.tier_2_unit_price | default: '$39.00 / bottle' }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tier 3: 6 Units (Best Value) -->
+    <div class="cro-bundle-card cro-card-best-value" data-tier="3" data-variant-id="{{ section.settings.tier_3_variant_id }}" data-price="{{ section.settings.tier_3_price }}" onclick="selectCroBundle(this)">
+      <div class="cro-badge cro-badge-value">{{ section.settings.tier_3_badge | default: 'BEST VALUE · FREE SHIPPING' }}</div>
+      <div class="cro-card-radio">
+        <input type="radio" name="cro_bundle_tier_{{ section.id }}" id="cro_tier_3_{{ section.id }}" value="3">
+      </div>
+      <div class="cro-card-content">
+        <div class="cro-card-header">
+          <span class="cro-pack-name">{{ section.settings.tier_3_title | default: '6 Months Supply' }}</span>
+          <span class="cro-pack-qty">{{ section.settings.tier_3_qty_text | default: '6 Bottles (Save 40%)' }}</span>
+        </div>
+        <div class="cro-card-pricing">
+          <span class="cro-current-price">{{ section.settings.tier_3_price_formatted | default: '$174.00' }}</span>
+          <span class="cro-unit-price">{{ section.settings.tier_3_unit_price | default: '$29.00 / bottle' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Primary Buy Button Form -->
+  <div class="cro-bundle-actions">
+    <button type="button" class="cro-cta-button" id="cro-cta-btn-{{ section.id }}" onclick="submitCroBundle('{{ section.id }}')">
+      {{ section.settings.cta_text | default: 'CLAIM OFFER & ADD TO CART' }}
+    </button>
+    <div class="cro-guarantee-strip">
+      <span class="cro-icon">🛡️</span> {{ section.settings.guarantee_text | default: '90-Day Money-Back Guarantee · Fast 2-3 Day Delivery' }}
+    </div>
+  </div>
+
+  <!-- App Upgrade / Automation Hook (Affiliate Engine Slot) -->
+  {% if section.settings.show_app_hook %}
+  <div class="cro-app-partner-notice">
+    <div class="cro-partner-icon">⚡</div>
+    <div class="cro-partner-body">
+      <strong>Want dynamic inventory auto-sync & tiered pricing without separate variants?</strong>
+      <span>Power this layout with <em>Kaching Bundles</em>. Use code <strong>SAVE20</strong> for 20% OFF.</span>
+    </div>
+    <a href="{{ section.settings.app_affiliate_link | default: 'https://apps.shopify.com/bundle-deals?mref=fcmkmjly' }}" target="_blank" rel="noopener nofollow" class="cro-partner-btn">
+      Get App ↗
+    </a>
+  </div>
+  {% endif %}
+</div>
+
+<style>
+  #cro-bundle-{{ section.id }} {
+    margin: 32px auto;
+    max-width: 680px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .cro-bundle-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .cro-bundle-subheading {
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    color: #e63946;
+  }
+  .cro-bundle-title {
+    font-size: 24px;
+    font-weight: 800;
+    margin: 4px 0 8px;
+    color: #111827;
+  }
+  .cro-bundle-desc {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+  }
+  .cro-bundle-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .cro-bundle-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    cursor: pointer;
+    background: #ffffff;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .cro-bundle-card:hover {
+    border-color: #9ca3af;
+  }
+  .cro-bundle-card.selected {
+    border-color: #10b981;
+    background: #f0fdf4;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.12);
+  }
+  .cro-card-radio {
+    margin-right: 16px;
+  }
+  .cro-card-radio input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #10b981;
+    cursor: pointer;
+  }
+  .cro-card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .cro-card-header {
+    display: flex;
+    flex-direction: column;
+  }
+  .cro-pack-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1f2937;
+  }
+  .cro-pack-qty {
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: 2px;
+  }
+  .cro-card-pricing {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+  }
+  .cro-current-price {
+    font-size: 18px;
+    font-weight: 800;
+    color: #111827;
+  }
+  .cro-unit-price {
+    font-size: 12px;
+    color: #059669;
+    font-weight: 600;
+  }
+  .cro-badge {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    padding: 2px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+  .cro-badge-popular {
+    background: #10b981;
+    color: #ffffff;
+  }
+  .cro-badge-value {
+    background: #3b82f6;
+    color: #ffffff;
+  }
+  .cro-bundle-actions {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .cro-cta-button {
+    width: 100%;
+    padding: 16px;
+    background: #111827;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .cro-cta-button:hover {
+    background: #059669;
+  }
+  .cro-guarantee-strip {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+  }
+  .cro-app-partner-notice {
+    margin-top: 24px;
+    padding: 12px 16px;
+    background: #f9fafb;
+    border: 1px dashed #d1d5db;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+  }
+  .cro-partner-body {
+    flex: 1;
+    color: #4b5563;
+  }
+  .cro-partner-body strong {
+    display: block;
+    color: #111827;
+  }
+  .cro-partner-btn {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: #111827;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .cro-partner-btn:hover {
+    border-color: #111827;
+  }
+</style>
+
+<script>
+  function selectCroBundle(cardElem) {
+    const container = cardElem.closest('.cro-bundle-container');
+    container.querySelectorAll('.cro-bundle-card').forEach(c => {
+      c.classList.remove('selected');
+      const radio = c.querySelector('input[type="radio"]');
+      if (radio) radio.checked = false;
+    });
+    cardElem.classList.add('selected');
+    const activeRadio = cardElem.querySelector('input[type="radio"]');
+    if (activeRadio) activeRadio.checked = true;
+  }
+
+  function submitCroBundle(sectionId) {
+    const container = document.getElementById('cro-bundle-' + sectionId);
+    const selectedCard = container.querySelector('.cro-bundle-card.selected');
+    if (!selectedCard) return;
+
+    const variantId = selectedCard.getAttribute('data-variant-id');
+    const tier = selectedCard.getAttribute('data-tier');
+
+    // If variant ID is configured, post to Shopify AJAX cart API
+    if (variantId && variantId !== '') {
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: [{ id: parseInt(variantId), quantity: 1 }] })
+      })
+      .then(res => res.json())
+      .then(data => {
+        window.location.href = '/checkout';
+      })
+      .catch(err => {
+        console.error('Add to cart error:', err);
+        window.location.href = '/cart';
+      });
+    } else {
+      alert('Vui lòng cấu hình Variant ID trong Theme Editor để kết nối trực tiếp giỏ hàng.');
+    }
+  }
+</script>
+
+{% schema %}
+{
+  "name": "CRO Supply Packs Bundle",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "SPECIAL OFFER"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Select Your Supply & Save"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Over 92% of customers choose the 3 or 6-month bundle for long-term results."
+    },
+    {
+      "type": "header",
+      "content": "Tier 1 (Starter - 1 Unit)"
+    },
+    {
+      "type": "text",
+      "id": "tier_1_title",
+      "label": "Title",
+      "default": "1 Month Supply"
+    },
+    {
+      "type": "text",
+      "id": "tier_1_qty_text",
+      "label": "Quantity Subtitle",
+      "default": "1 Bottle"
+    },
+    {
+      "type": "text",
+      "id": "tier_1_price_formatted",
+      "label": "Price Display",
+      "default": "$49.00"
+    },
+    {
+      "type": "text",
+      "id": "tier_1_variant_id",
+      "label": "Shopify Variant ID"
+    },
+    {
+      "type": "header",
+      "content": "Tier 2 (Most Popular - 3 Units)"
+    },
+    {
+      "type": "text",
+      "id": "tier_2_badge",
+      "label": "Badge Text",
+      "default": "MOST POPULAR"
+    },
+    {
+      "type": "text",
+      "id": "tier_2_title",
+      "label": "Title",
+      "default": "3 Months Supply"
+    },
+    {
+      "type": "text",
+      "id": "tier_2_qty_text",
+      "label": "Quantity Subtitle",
+      "default": "3 Bottles (Save 20%)"
+    },
+    {
+      "type": "text",
+      "id": "tier_2_price_formatted",
+      "label": "Price Display",
+      "default": "$117.00"
+    },
+    {
+      "type": "text",
+      "id": "tier_2_unit_price",
+      "label": "Unit Price Display",
+      "default": "$39.00 / bottle"
+    },
+    {
+      "type": "text",
+      "id": "tier_2_variant_id",
+      "label": "Shopify Variant ID"
+    },
+    {
+      "type": "header",
+      "content": "Tier 3 (Best Value - 6 Units)"
+    },
+    {
+      "type": "text",
+      "id": "tier_3_badge",
+      "label": "Badge Text",
+      "default": "BEST VALUE · FREE SHIPPING"
+    },
+    {
+      "type": "text",
+      "id": "tier_3_title",
+      "label": "Title",
+      "default": "6 Months Supply"
+    },
+    {
+      "type": "text",
+      "id": "tier_3_qty_text",
+      "label": "Quantity Subtitle",
+      "default": "6 Bottles (Save 40%)"
+    },
+    {
+      "type": "text",
+      "id": "tier_3_price_formatted",
+      "label": "Price Display",
+      "default": "$174.00"
+    },
+    {
+      "type": "text",
+      "id": "tier_3_unit_price",
+      "label": "Unit Price Display",
+      "default": "$29.00 / bottle"
+    },
+    {
+      "type": "text",
+      "id": "tier_3_variant_id",
+      "label": "Shopify Variant ID"
+    },
+    {
+      "type": "header",
+      "content": "Call To Action & Guarantee"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "CLAIM OFFER & ADD TO CART"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Guarantee Text",
+      "default": "90-Day Money-Back Guarantee · Fast 2-3 Day Delivery"
+    },
+    {
+      "type": "header",
+      "content": "Partner Automation Hook"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_app_hook",
+      "label": "Show Partner App Upgrade Link",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "app_affiliate_link",
+      "label": "Partner Affiliate Link",
+      "default": "https://apps.shopify.com/bundle-deals?mref=fcmkmjly"
+    }
+  ],
+  "presets": [
+    {
+      "name": "CRO Supply Packs Bundle",
+      "category": "Custom CRO"
+    }
+  ]
+}
+{% endschema %}
