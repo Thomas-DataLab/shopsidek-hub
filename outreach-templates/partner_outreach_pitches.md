@@ -2,8 +2,10 @@
 
 ## Target 1: Kaching Bundles (Direct Competitor to ShopSideK's primary monetization)
 - App: Kaching Bundle Deals
-- Website/Listing: apps.shopify.com/bundle-deals
-- Key Angles: High converting bundle blocks, 20% OFF discount coupon + 20-30% lifetime monthly recurring revenue (MRR) affiliate agreement.
+- Company: Kaching Appz (kachingappz.com)
+- Direct Partner Application: https://www.kachingappz.com/affiliate/ & https://www.kachingappz.com/become-a-partner
+- Direct Contact Email: partners@kachingappz.com
+- Key Angles: High converting bundle blocks, 20% OFF discount coupon + 20-30% lifetime monthly recurring revenue (MRR) affiliate agreement (paid weekly via bank transfer, $50 min payout).
 - Target Persona: Partnerships Lead / Co-founder
 
 ### Email / LinkedIn Subject Lines:
@@ -39,6 +41,8 @@ LinkedIn: linkedin.com/in/thomas-data
 ## Target 2: WideBundle (Mat de Sousa - Founder)
 - App: WideBundle - Quantity Breaks & Offers
 - Website/Listing: apps.shopify.com/widebundle
+- Founder: Mat De Sousa (mat@matdesousa.com / support@widebundle.com)
+- Social: Twitter/X @DsMatie | LinkedIn: linkedin.com/in/mat-de-sousa-20a365134
 - Key Angles: Clean UI, French & US dropshipping / DTC market dominant.
 
 ### Email / Twitter / LinkedIn Message:
