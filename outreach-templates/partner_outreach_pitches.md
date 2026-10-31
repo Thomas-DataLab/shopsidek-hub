@@ -28,7 +28,9 @@ We're finalizing the Q4 launch pipeline and would love to feature Kaching Bundle
 
 Best regards,
 Thomas Pham
-Growth & CRO Strategist | [Your Domain / Project Name]
+Growth & CRO Strategist | ShopSideK Hub
+Live Hub: https://shopsidek-hub.vercel.app
+Open Source Code: https://github.com/Thomas-DataLab/shopify-dawn-bundle-packs
 LinkedIn: linkedin.com/in/thomas-data
 ```
 

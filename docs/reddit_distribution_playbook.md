@@ -29,7 +29,9 @@ What it does:
 
 I've made the code completely free and open-source.
 
-If anyone wants to try it out on their Dawn store, let me know in the comments or check the GitHub / setup guide here: [Link to Hub / Repo]
+If anyone wants to try it out on their Dawn store, let me know in the comments or check the GitHub / setup guide here:
+- Open Source Liquid Code: https://github.com/Thomas-DataLab/shopify-dawn-bundle-packs
+- Live Interactive Teardown: https://shopsidek-hub.vercel.app
 
 Happy to help anyone troubleshoot installation if your theme has custom variant selectors.
 ```
